@@ -105,11 +105,13 @@ body {
   color: #2e7d32;          /* café antiguo */
   font-size: 30px;
   letter-spacing: 1px;
+ margin-top: 15px;
 }
 
 .header p {
   color: #2e7d32;
   font-size: 14px;
+ margin-top: 0px;
 }
 
 .content {
@@ -176,6 +178,50 @@ body {
   .header h1 { font-size: 30px; }
   .content { font-size: 16px; }
 }
+
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;   /* 👈 permite scroll */
+  }
+}
+
+@media (max-width: 768px) {
+  .pantalla {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .sobre {
+    width: 260px;
+    height: 160px;
+  }
+
+  .btn-abrir {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 94%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .content {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+}
+
 </style>
 </head>
 
@@ -222,20 +268,21 @@ body {
 </audio>
 
 <script>
-const openButton = document.getElementById('openButton');
-const pantalla = document.getElementById('pantalla');
-const carta = document.getElementById('carta');
+const openButton = document.querySelector('.btn-abrir');
+const pantalla = document.querySelector('.pantalla');
+const container = document.querySelector('.container');
 const music = document.getElementById('music');
 
 openButton.addEventListener('click', () => {
   pantalla.style.display = 'none';
-  carta.style.display = 'block';
-  music.play();
+  container.style.display = 'block';
+  music.play().catch(() => {});
 });
 </script>
 
 </body>
 </html>
+
 
 
 
